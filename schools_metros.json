@@ -1,0 +1,81 @@
+{ "metropolitans" : [ { "abbrev" : "JHB",
+  "name" : "CityofJohannesburg",
+  "schools" : [ { "2012" : "R28850",
+    "2013" : "notfinalised",
+    "School" : "ParktownBoys'High"
+  },
+  { "2012" : "R25500",
+    "2013" : "notfinalisedbuta10%increaseexpected",
+    "School" : "NorthcliffHigh"
+  },
+  { "2012" : "R10400",
+    "2013" : "a10%increasedisexpectednextyear",
+    "School" : "MondeorHigh"
+  }
+  ]
+                      },
+  { "abbrev" : "TSH",
+    "name" : "CityofTshwane",
+    "schools" : [ { "2012" : "R17550forallgrades",
+      "2013" : "notfinalised",
+      "School" : "PretoriaGirls'High"
+    },
+    { "2012" : "R26750forallgrades",
+      "2013" : "notfinalised",
+      "School" : "PretoriaBoys'High"
+    },
+    { "2012" : "R21080forallgradesin2012",
+      "2013" : "notyetfinalised",
+      "School" : "Afrik@nseHoerMeisieikool"
+    }
+    ]
+  },
+  { "abbrev" : "EKU",
+    "name" : "Ekurhuleni",
+    "schools" : [  ]
+  },
+  { "abbrev" : "ETH",
+    "name" : "eThekwini",
+    "schools" : [ { "2012" : "R28300",
+      "2013" : "R31111",
+      "School" : "WestvilleBoys’High"
+    },
+    { "2012" : "R17820forGrade8R17630forGrade9andupwards",
+      "2013" : "itwentupby9%lastyearandasimilarincreaseisexpected",
+      "School" : "WestvilleGirls’High"
+    },
+    { "2012" : "R28875",
+      "2013" : "Notsetyetbutusuallygoesupby8to10%",
+      "School" : "DurbanHigh"
+    }
+    ]
+  },
+  { "abbrev" : "CPT",
+    "name" : "CityofCapeTown",
+    "schools" : [ { "2012" : "R30834forGrade7",
+      "2013" : "notfinalised",
+      "School" : "MaristBrothers’Junior"
+    },
+    { "2012" : "R28350",
+      "2013" : "notfinalised",
+      "School" : "SACollegeJunior"
+    },
+    { "2012" : "R27600",
+      "2013" : "notfinalised",
+      "School" : "SACollegeHigh"
+    }
+    ]
+  },
+  { "abbrev" : "BUF",
+    "name" : "BuffaloCity",
+    "schools" : [  ]
+  },
+  { "abbrev" : "NMA",
+    "name" : "NelsonMandelaBay",
+    "schools" : [  ]
+  },
+  { "abbrev" : "MAN",
+    "name" : "Mangaung",
+    "schools" : [  ]
+  }
+] }

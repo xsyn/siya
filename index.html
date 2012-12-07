@@ -1,0 +1,138 @@
+<!DOCCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" charset="utf-8">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>South African School Fees Interactive Map</title>
+    <link rel="stylesheet" type="text/css" href="reset.css">
+    <link rel="stylesheet" type="text/css" href="unemp.css">
+    <script src="jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="raphael-min.js" type="text/javascript" charset="utf-8"></script>
+
+  </head>
+  <body>
+    <div id="mainwrapper">
+      <div id="leadin">
+        <h1>South Africa Population Size</h1>
+        <p>Population Size by Province according to Stats SA's Census Results for 2011</p>
+      </div>
+
+      <div id="map"></div>
+      <div id="tooltip"></div>
+
+      <div id="debug"></div>
+    </div>
+    <script src="southafrica_municipality.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" charset="utf-8">
+      // Helper function to determine color. Currently a blue-gray color scheme.
+    function getColor(val) {
+
+      if (val < 5) {    
+        var col = "#d0d3db"; 
+      } else if (val < 7) {
+        var col = "#a9afbe";  
+      } else if (val < 9) {
+        var col = "#677189"; 
+      } else {
+        var col = "#434958";
+      }
+      return(col);
+      
+    } // <a class="_hootified" a="" href="http://twitter.com/#!/@end" onclick="javascript:var e = document.createEvent("CustomEvent"); e.initCustomEvent("hootletEvent", true, true, {type: "userHandle", value: "@end"});  document.body.dispatchEvent(e); return false;">@end</a> getColor 
+
+$(document).ready(function () {
+
+    // Load the data.       
+    $.getJSON('schools_metros.json', function(data) {
+      var tooltip = $("#tooltip").hide();
+      var tiphtml = "";
+      var over = false;
+
+      // Store data by metropolitan abbreviation.            
+      var metros = {};
+      $.each(data.metropolitans, function(i,metropolitan) {    
+        // $("#debug").append(province.name);
+        metros[metropolitan.abbrev] = { "name":metropolitan.name, "val":metropolitan.schools };
+        }); // @end each
+
+      // Set properties for each state.
+      for (var i=0; i < metropolitans.length; i++) {
+      var s = metropolitans[i];
+      var id = s.data("id");
+
+      for (var i in metros)
+      {
+          console.log(metros[i].val.length)
+      
+          // Set state color.
+          s.attr({
+            fill: getColor(metros[i].val.length),
+            // fill: "#d6d6d6",
+            stroke: "#fff" 
+          })
+      }   
+
+// Highlight state and show tooltip on mouse over.
+s.mouseover(function() {
+    this.toFront();
+    var abbrev = this.data("id");
+    if (abbrev == 'SP' || abbrev == 'MI') {
+    SP.attr({
+stroke: "#000",
+'stroke-width': '2'
+});
+    MI.attr({
+stroke: "#000",
+'stroke-width': '2'
+});
+    } else {
+    this.attr({
+stroke: "#000",
+'stroke-width': '2'
+});
+    }
+    tiphtml = '<h3>'+metros[abbrev].name+'</h3><p>Metropolitans Schools: '+metros[abbrev].val+'%</p>';
+    over = true;
+    $(tooltip).show();
+});
+
+
+// Remove highlight and tool tip.
+s.mouseout(function() {
+    var abbrev = this.data("id");
+    if (abbrev == 'SP' || abbrev == 'MI') {
+    SP.attr({
+stroke: "#fff",
+'stroke-width': "1"
+});
+    MI.attr({
+stroke: "#fff",
+'stroke-width': "1"
+});
+    } else {
+    this.attr({
+stroke: "#fff",
+'stroke-width': "1"
+});
+    }
+    over = false;
+    $(tooltip).hide();
+    });
+
+} // @end for loop
+
+
+// Set tooltip text and position.
+$(document).mousemove(function(e) {
+    if (over) {
+    $(tooltip).css("left", e.clientX+15).css("top", e.clientY+15);
+    $(tooltip).html(tiphtml);
+    }
+    });
+
+});
+
+});
+</script>
+<!-- <script src="zoomandpan.js" type="text/javascript" charset="utf-8"></script> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          </body>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </html>
+
